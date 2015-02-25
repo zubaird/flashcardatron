@@ -1,3 +1,33 @@
-<h2 id="title">Welcome to Ember.js</h2>
+<div class="ui large inverted menu">
 
-{{outlet}}
+  {{#link-to "application"}}
+
+    <h1>
+      <i class="home icon"></i>
+    Flashcardatron
+    </h1>
+
+  {{/link-to}}
+
+</div>
+
+<div class="ui grid">
+  <div class="four wide column"></div>
+
+  <div class="eight wide column">
+    {{outlet}}
+    
+  </div>
+
+  <div class="four wide column">
+    <h1>CARD SET LIBRARY</h1>
+    <div class="ui large vertical menu">
+
+      <a class="active item">
+        <div class="ui teal label">1</div>
+        Card Set
+      </a>
+
+    </div>
+  </div>
+</div>
