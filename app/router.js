@@ -8,6 +8,7 @@ var Router = Ember.Router.extend({
 Router.map(function() {
   this.route('cardsets', function() {
     this.route('show');
+    this.route('new');
   });
 });
 
