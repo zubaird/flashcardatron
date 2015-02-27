@@ -1,9 +1,16 @@
 <h1>Study Session for {{model.title}} </h1>
 
-
-
-{{#each item in model.card_ids}}
-  <li>{{#link-to "cards.show" item}}Show Card{{/link-to}}</li> <br>
-{{/each}}
-
 {{outlet}}
+
+
+{{#ui-accordion class="styled"}}
+{{#each item in model.card_ids}}
+  <div class="title">
+    <i class="dropdown icon"></i>
+    {{item.question}}
+  </div>
+  <div class="content">
+    {{item.answer}}
+  </div>
+  {{/each}}
+{{/ui-accordion}}
