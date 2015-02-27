@@ -1,7 +1,10 @@
 
 {{outlet}}
+<h3>{{#link-to "cardsets.new"}}(+)Add a new card set{{/link-to}}</h3>
 <hr>
 <h1>Current Card Sets:</h1>
+
+<br>
 
 {{#each cardset in model}}
   {{#link-to "cardsets.show" cardset}}<li>{{cardset.title}}</li>{{/link-to}}
