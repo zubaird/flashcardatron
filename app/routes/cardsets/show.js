@@ -16,6 +16,23 @@ export default Ember.Route.extend({
       console.log(thing);
       model.set('editing', true);
     },
+
+    editCard: function (model) {
+      var thing = model.get("editingCard");
+      console.log(thing);
+      console.log(model);
+      model.set('editingCard', true);
+    },
+    saveCard: function(model){
+      model.set('editingCard', false);
+
+      var _this = this;
+
+      model.save().then(function(){
+        _this.transitionToRoute('cardsets.show.index');
+      });
+    },
+
     saveCardset: function(model){
       model.set('editing', false);
 
@@ -26,5 +43,6 @@ export default Ember.Route.extend({
       });
     }
   },
-  editing: false
+  editing: false,
+  editingCard: false
 });

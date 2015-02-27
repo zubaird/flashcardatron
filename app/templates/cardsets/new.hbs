@@ -3,9 +3,11 @@
 <div class="ui form">
   <div class="field">
     <label>Enter a name for your new card set:</label>
-    {{input value=model.title}}
+    {{#validatable-form action='createCardset' model=model}}
+    {{input value=model.title required='required'}}
+    <input class="ui submit button" type="submit">
+    {{/validatable-form}}
   </div>
-  <div class="ui submit button" {{action "createCardset" model}}  >Submit</div>
 </div>
 
 

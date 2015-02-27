@@ -6,6 +6,7 @@
   <div class="right floated compact ui button" {{action "editCardset" model}} >edit</div>
   <h1>{{model.title}}</h1>
   {{/if}}
+  {{this.editing}}
 </h1>
 
 <hr>
@@ -13,23 +14,40 @@
 <div class="ui divided list">
   <div class="item">
     <div class="content">
-      <div class="right floated ui button" {{action "deleteCard" item}} >Delete</div>
-      <a class="header"> {{item.question}} </a>
-      <div class="description">{{item.answer}}</div>
+      {{#if item.editingCard}}
+
+      <div class="ui form">
+        {{#validatable-form action='saveCard' model=item}}
+        {{input value=item.question required='required'}}
+        {{input value=item.answer required='required'}}
+        <input class="right floated compact ui submit button" type="submit">
+        {{/validatable-form}}
+      </div>
+
+
+        {{else}}
+
+        <div class="right floated ui button" {{action "deleteCard" item}} >Delete</div>
+        <div class="right floated ui button" {{action "editCard" item}} >Edit</div>
+        <a class="header"> {{item.question}} </a>
+        <div class="description">{{item.answer}}</div>
+
+        {{/if}}
+        {{this.editingCard}}
+      </div>
     </div>
   </div>
-</div>
-<hr>
-{{/each}}
+  <hr>
+  {{/each}}
 
-<div class="ui buttons">
-  <div class="ui button">{{#link-to "cardsets.study" model}}Start Study Session{{/link-to}}</div>
-  <div class="or"></div>
-  <div class="ui button">{{#link-to "cards.new"}}Add New Card{{/link-to}}</div>
-</div>
-
+  <div class="ui buttons">
+    <div class="ui button">{{#link-to "cardsets.study" model}}Start Study Session{{/link-to}}</div>
+    <div class="or"></div>
+    <div class="ui button">{{#link-to "cards.new"}}Add New Card{{/link-to}}</div>
+  </div>
 
 
- <br>
 
-{{outlet}}
+  <br>
+
+  {{outlet}}

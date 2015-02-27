@@ -36,6 +36,7 @@
     "ember-localstorage-adapter": "^0.5.2",
     "express": "^4.8.5",
     "glob": "^4.0.5",
+    "ember-cli-html5-validation": "0.0.*",
     "semantic-ui-ember": "0.0.1-rc.6"
   }
 }
