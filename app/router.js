@@ -6,10 +6,16 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('cardsets', function() {
-    this.route('show');
+  this.resource('cardsets', function() {
     this.route('new');
+    this.route('index');
+    this.route('show',{path: "/:cardset_id"}, function(){
+      this.resource('cards', function() {
+        this.route('new');
+      });
+    });
   });
+    this.route('study', {path: "/:cardset_id"});
 });
 
 export default Router;

@@ -1,0 +1,8 @@
+
+{{outlet}}
+<hr>
+<h1>Current Card Sets:</h1>
+
+{{#each cardset in model}}
+  {{#link-to "cardsets.show" cardset}}<li>{{cardset.title}}</li>{{/link-to}}
+{{/each}}

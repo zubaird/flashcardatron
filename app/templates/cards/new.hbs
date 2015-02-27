@@ -1,0 +1,7 @@
+<h1>Add New Card</h1>
+
+Enter a question: {{input value=model.question}}
+Enter an answer: {{input value=model.answer}}
+<button {{action "createCard" model}} >Save</button>
+
+{{outlet}}

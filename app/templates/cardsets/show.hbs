@@ -1,0 +1,14 @@
+<h1>This is the show page</h1>
+
+{{model.title}}
+
+
+{{#each item in model.card_ids}}
+  <li>QUESTION: {{item.question}}........ANSWER: {{item.answer}}</li>
+{{/each}}
+
+{{#link-to "cards.new"}}Add New Card{{/link-to}} <br>
+{{#link-to "cardsets.study" cardset}}Start Study Session{{/link-to}}
+
+
+{{outlet}}
