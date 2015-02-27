@@ -1,33 +1,34 @@
-<div class="ui large inverted menu">
+<div class="ui inverted black vertical segment">
+  <div class="ui large inverted header menu">
+<br>
+    <div class="ui page grid">
+      {{#link-to "application"}}
+      <a class="item">
+        <div class="column">
+          <h1 class="ui inverted header" id="jumbo">Flashcardatron</h1>
+        </div>
 
-  {{#link-to "application"}}
+        {{/link-to}}
+        {{#link-to "cardsets.index"}}
+        <a class="item">
+          <div class="column">
+            <h3 class="ui inverted header"> Card Set Library</h3>
+          </div>
+        </a>
+        {{/link-to}}
+      </div>
+    </div>
 
-    <h1>
-      <i class="home icon"></i>
-    Flashcardatron
-    </h1>
-
-  {{/link-to}}
-
-</div>
-
-<div class="ui grid">
-  <div class="four wide column"></div>
-
-  <div class="eight wide column">
-    {{#link-to "cardsets.index"}}View Card Sets{{/link-to}}
-    {{outlet}}
   </div>
 
-  <div class="four wide column">
-    <h1>CARD SET LIBRARY</h1>
-    <div class="ui large vertical menu">
+  <div class="ui grid">
+    <div class="four wide column"></div>
 
-      <a class="active item">
-        <div class="ui teal label">1</div>
-        Card Set
-      </a>
+    <div class="eight wide column">
 
+      {{outlet}}
+    </div>
+
+    <div class="four wide column">
     </div>
   </div>
-</div>

@@ -1,13 +1,35 @@
-<h1>This is the show page</h1>
+<h1>
+  {{#if editing}}
+  <div class="right floated compact ui button" {{action "saveCardset" model}} >update</div>
+  {{input value=model.title}}
+  {{else}}
+  <div class="right floated compact ui button" {{action "editCardset" model}} >edit</div>
+  <h1>{{model.title}}</h1>
+  {{/if}}
+</h1>
 
-{{model.title}}
-
-
+<hr>
 {{#each item in model.card_ids}}
-  <li>QUESTION: {{item.question}}........ANSWER: {{item.answer}}</li>
+<div class="ui divided list">
+  <div class="item">
+    <div class="content">
+      <div class="right floated ui button" {{action "deleteCard" item}} >Delete</div>
+      <a class="header"> {{item.question}} </a>
+      <div class="description">{{item.answer}}</div>
+    </div>
+  </div>
+</div>
+<hr>
 {{/each}}
 
-{{#link-to "cards.new"}}Add New Card{{/link-to}} <br>
-{{#link-to "cardsets.study" model}}Start Study Session{{/link-to}}
+<div class="ui buttons">
+  <div class="ui button">{{#link-to "cardsets.study" model}}Start Study Session{{/link-to}}</div>
+  <div class="or"></div>
+  <div class="ui button">{{#link-to "cards.new"}}Add New Card{{/link-to}}</div>
+</div>
+
+
+
+ <br>
 
 {{outlet}}

@@ -1,10 +1,24 @@
 {{outlet}}
 <h3>{{#link-to "cardsets.new"}}(+)Add a new card set{{/link-to}}</h3>
-<hr>
 <h1>Current Card Sets:</h1>
 
-<br>
+<div class="ui teal segment">
+  {{#each cardset in model}}
 
-{{#each cardset in model}}
-  {{#link-to "cardsets.show" cardset}}<li>{{cardset.title}}</li>{{/link-to}}
-{{/each}}
+  <div class="ui inverted segment">
+    <div class="ui inverted relaxed divided list">
+      <div class="item">
+        <div class="content">
+          <div class="right floated compact ui button" {{action "deleteCardset" cardset}} >Delete</div>
+          {{#link-to "cardsets.show" cardset}}
+          <div class="right floated compact ui button">View/Edit</div>
+          {{/link-to}}
+          <div class="header"><h1>{{cardset.title}}</h1> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+
+  {{/each}}
+</div>
