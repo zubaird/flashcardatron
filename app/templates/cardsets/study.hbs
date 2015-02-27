@@ -1,1 +1,9 @@
 <h1>Study Session for {{model.title}} </h1>
+
+
+
+{{#each item in model.card_ids}}
+  <li>{{#link-to "cards.show" item}}Show Card{{/link-to}}</li> <br>
+{{/each}}
+
+{{outlet}}

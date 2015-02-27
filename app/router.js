@@ -14,7 +14,11 @@ Router.map(function() {
         this.route('new');
       });
     });
-    this.route('study', {path: "/:cardset_id/study"});
+    this.route('study', {path: "/:cardset_id/study"}, function(){
+      this.resource('cards', function() {
+        this.route('show', {path:"/:card_id"});
+      });
+    });
   });
 });
 
