@@ -14,8 +14,8 @@ Router.map(function() {
         this.route('new');
       });
     });
+    this.route('study', {path: "/:cardset_id/study"});
   });
-    this.route('study', {path: "/:cardset_id"});
 });
 
 export default Router;
